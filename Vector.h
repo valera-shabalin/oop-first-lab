@@ -12,22 +12,28 @@ public:
 	/* Конструктор копирования */
 	Vector(const Vector& other);
 
+	/* Перегрузка оператора присваивания */
+	void operator = (const Vector& other);
+
 	/* Деструктор */
 	~Vector();
-
-	/* Вывод вектора в консоль */
-	void print(bool linebreak = true);
-
-	/* Подсчёт модуля вектора */
-	double calcAbs();
 
 	/* Умножение вектора на скаляр */
 	void multiplyScalar(double n = 1);
 
+	/* Подсчёт модуля вектора */
+	double calcAbs() const;
+
+	/* Подсчёт единичного вектора */
+	Vector calcOrt() const;
+
+	/* Вывод вектора в консоль */
+	void print(bool linebreak = true) const;
+
 	/* Геттеры */
-	double getX() { return this->x; }
-	double getY() { return this->y; }
-	double getZ() { return this->z; }
+	double getX() const { return this->x; }
+	double getY() const { return this->y; }
+	double getZ() const { return this->z; }
 
 	/* Сеттеры */
 	void setX(double x) { this->x = x; }

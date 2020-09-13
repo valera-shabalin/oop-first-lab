@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 
 #include "Vector.h"
+#include "Functions.h"
 
 using namespace std;
 
@@ -15,21 +16,9 @@ int main() {
 
 	system("cls");
 
-	Vector f_vector, s_vector(x, y, z);
-	Vector t_vector(s_vector);
+	/* Инициализация векторов */
+	Vector f_vector, s_vector(x, y, z), t_vector(1, 2, 3);
 
-	/* Вывод векторов */
-	f_vector.print(false);
-	cout << ", модуль = " << f_vector.calcAbs() << endl;
-	s_vector.print(false);
-	cout << ", модуль = " << s_vector.calcAbs() << endl;
-	t_vector.print(false);
-	cout << ", модуль = " << t_vector.calcAbs() << endl;
-
-	/* Умножение вектора на скаляр */
-	cout << "Второй вектор, умноженный на 3:" << endl;
-	s_vector.multiplyScalar(3);
-	s_vector.print(false);
-	cout << ", модуль = " << s_vector.calcAbs() << endl;
+	
 }
 

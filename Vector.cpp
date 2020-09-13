@@ -21,15 +21,16 @@ Vector::Vector(const Vector &other) {
 	cout << "Вызвался конструктор копирования - " << this << endl;
 }
 
+/* Перегрузка оператора присваивания */
+void Vector::operator = (const Vector& other) {
+	this->x = other.x;
+	this->y = other.y;
+	this->z = other.z;
+}
+
 /* Деструктор */
 Vector::~Vector() {
 	cout << "Вызвался деструктор - " << this << endl;
-}
-
-/* Вывод вектора в консоль */
-void Vector::print(bool linebreak) {
-	cout << "[" << x << "," << y << "," << z << "]";
-	if (linebreak) cout << endl;
 }
 
 /* Умножение вектора на скаляр */
@@ -40,6 +41,18 @@ void Vector::multiplyScalar(double n) {
 }
 
 /* Подсчёт модуля вектора */
-double Vector::calcAbs() {
+double Vector::calcAbs() const {
 	return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
+}
+
+/* Подсчёт единичного вектора */
+Vector Vector::calcOrt() const {
+	double abs = this->calcAbs();
+	return(Vector(this->x / abs, this->y / abs, this->z / abs));
+}
+
+/* Вывод вектора в консоль */
+void Vector::print(bool linebreak) const {
+	cout << "[" << x << "," << y << "," << z << "]";
+	if (linebreak) cout << endl;
 }
