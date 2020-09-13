@@ -19,7 +19,7 @@ int main() {
 	/* Инициализация векторов */
 	Vector f_vector, s_vector(x, y, z), t_vector(1, 2, 3);
 
-	double cos = calcCos(s_vector, t_vector);
-	cout << cos;
+	double angle = calcAngle(s_vector, t_vector);
+	cout << angle;
 }
 

@@ -34,3 +34,8 @@ double calcCos(Vector const& f_vector, Vector const& s_vector) {
 double calcSin(Vector const& f_vector, Vector const& s_vector) {
 	return(1 - pow(calcCos(f_vector, s_vector), 2));
 }
+
+/* Получение угла между векторами */
+double calcAngle(Vector const& f_vector, Vector const& s_vector) {
+	return(atan2(multiply(f_vector, s_vector).calcAbs(), s_multiply(f_vector, s_vector)));
+}

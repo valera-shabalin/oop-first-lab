@@ -19,4 +19,7 @@ double calcCos(Vector const& f_vector, Vector const& s_vector);
 /* Получение синуса между векторами */
 double calcSin(Vector const& f_vector, Vector const& s_vector);
 
+/* Получение угла между векторами */
+double calcAngle(Vector const& f_vector, Vector const& s_vector);
+
 #endif
