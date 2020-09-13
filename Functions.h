@@ -13,4 +13,10 @@ Vector multiply(Vector const& f_vector, Vector const& s_vector);
 /* Скарярное двух произведение */
 double s_multiply(Vector const& f_vector, Vector const& s_vector);
 
+/* Получение косинуса между векторами */
+double calcCos(Vector const& f_vector, Vector const& s_vector);
+
+/* Получение синуса между векторами */
+double calcSin(Vector const& f_vector, Vector const& s_vector);
+
 #endif
