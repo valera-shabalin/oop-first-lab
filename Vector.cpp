@@ -1,1 +1,29 @@
+#include <iostream>
+#include <math.h>
 #include "Vector.h"
+
+using namespace std;
+
+/* Конструктор */
+Vector::Vector(double x, double y, double z) {
+	this->x = x;
+	this->y = y;
+	this->z = z;
+	cout << "Вызвался конструктор - " << this << endl;
+}
+
+/* Деструктор */
+Vector::~Vector() {
+	cout << "Вызвался деструктор - " << this << endl;
+}
+
+/* Вывод вектора в консоль */
+void Vector::print(bool linebreak) {
+	cout << "[" << x << "," << y << "," << z << "]";
+	if (linebreak) cout << endl;
+}
+
+/* Подсчёт модуля вектора */
+double Vector::calcAbs() {
+	return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
+}
