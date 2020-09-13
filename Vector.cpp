@@ -12,6 +12,14 @@ Vector::Vector(double x, double y, double z) {
 	cout << "Вызвался конструктор - " << this << endl;
 }
 
+/* Конструктор копирования */
+Vector::Vector(const Vector &other) {
+	this->x = other.x;
+	this->y = other.y;
+	this->z = other.z;
+	cout << "Вызвался конструктор копирования - " << this << endl;
+}
+
 /* Деструктор */
 Vector::~Vector() {
 	cout << "Вызвался деструктор - " << this << endl;
