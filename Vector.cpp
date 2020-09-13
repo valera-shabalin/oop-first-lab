@@ -31,6 +31,13 @@ void Vector::print(bool linebreak) {
 	if (linebreak) cout << endl;
 }
 
+/* Умножение вектора на скаляр */
+void Vector::multiplyScalar(double n) {
+	this->x *= n;
+	this->y *= n;
+	this->z *= n;
+}
+
 /* Подсчёт модуля вектора */
 double Vector::calcAbs() {
 	return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));

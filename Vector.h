@@ -15,12 +15,14 @@ public:
 	/* Деструктор */
 	~Vector();
 
-
 	/* Вывод вектора в консоль */
 	void print(bool linebreak = true);
 
 	/* Подсчёт модуля вектора */
 	double calcAbs();
+
+	/* Умножение вектора на скаляр */
+	void multiplyScalar(double n = 1);
 
 	/* Геттеры */
 	double getX() { return this->x; }
