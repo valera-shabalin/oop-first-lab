@@ -6,11 +6,11 @@
 using namespace std;
 
 /* Конструктор */
-Vector::Vector(double x, double y, double z, bool debug) {
+Vector::Vector(double x, double y, double z) {
 	this->x = x;
 	this->y = y;
 	this->z = z;
-	if (debug) cout << "Вызвался конструктор - " << this << endl;
+	cout << "Вызвался конструктор - " << this << endl;
 }
 
 /* Конструктор копирования */
@@ -18,7 +18,7 @@ Vector::Vector(const Vector &other) {
 	this->x = other.x;
 	this->y = other.y;
 	this->z = other.z;
-	if (this->debug) cout << "Вызвался конструктор копирования - " << this << endl;
+	cout << "Вызвался конструктор копирования - " << this << endl;
 }
 
 /* Перегрузка оператора присваивания */
@@ -30,7 +30,7 @@ void Vector::operator = (const Vector& other) {
 
 /* Деструктор */
 Vector::~Vector() {
-	if (this->debug) cout << "Вызвался деструктор - " << this << endl;
+	cout << "Вызвался деструктор - " << this << endl;
 }
 
 /* Умножение вектора на скаляр */

@@ -4,11 +4,10 @@
 class Vector {
 private:
 	double x, y, z;
-	bool debug = false;
 
 public:
 	/* Конструктор */
-	Vector(double x = 0, double y = 0, double z = 0, bool debug = false);
+	Vector(double x = 0, double y = 0, double z = 0);
 
 	/* Конструктор копирования */
 	Vector(const Vector& other);
