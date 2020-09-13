@@ -15,6 +15,7 @@ public:
 	/* Деструктор */
 	~Vector();
 
+
 	/* Вывод вектора в консоль */
 	void print(bool linebreak = true);
 
