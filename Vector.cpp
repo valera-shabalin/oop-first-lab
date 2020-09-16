@@ -7,19 +7,19 @@
 
 using namespace std;
 
+int Vector::static_id = 1;
+
 /* Конструктор */
 Vector::Vector(double x, double y, double z) {
-	this->x = x;
-	this->y = y;
-	this->z = z;
+	this->x = x; this->y = y; this->z = z;
 	this->id = static_id++;
 	cout << "Вызвался конструктор, id - " << this->id << endl;
 }
 
 /* Конструктор копирования */
 Vector::Vector(const Vector &other) {
-	this->x = other.x;
-	this->y = other.y;
+	this->x = other.x; 
+	this->y = other.y; 
 	this->z = other.z;
 	this->id = static_id++;
 	cout << "Вызвался конструктор копирования, id - " << this->id << endl;
@@ -28,11 +28,10 @@ Vector::Vector(const Vector &other) {
 /* Перегрузка оператора присваивания */
 const Vector& Vector::operator = (const Vector& other) {
 	if (this == &other) return *this;
-	this->x = other.x;
-	this->y = other.y;
+	this->x = other.x; 
+	this->y = other.y; 
 	this->z = other.z;
-	this->id = static_id++;
-	return other;
+	return *this;
 }
 
 /* Деструктор */
@@ -41,10 +40,11 @@ Vector::~Vector() {
 }
 
 /* Умножение вектора на скаляр */
-void Vector::multiplyScalar(const double n) {
-	this->x *= n;
-	this->y *= n;
+Vector& Vector::multiplyScalar(const double n) {
+	this->x *= n; 
+	this->y *= n; 
 	this->z *= n;
+	return *this;
 }
 
 /* Подсчёт модуля вектора */
@@ -66,20 +66,30 @@ void Vector::print(const bool linebreak) const {
 
 /* Сумма векторов */
 Vector summ(const Vector& f_vector, const Vector& s_vector) {
-	return(Vector(f_vector.getX() + s_vector.getX(), f_vector.getY() + s_vector.getY(), f_vector.getZ() + s_vector.getZ()));
+	return(Vector(
+			f_vector.getX() + s_vector.getX(), 
+			f_vector.getY() + s_vector.getY(), 
+			f_vector.getZ() + s_vector.getZ()	
+		)
+	);
 }
 
 /* Разница векторов */
 Vector diff(const Vector& f_vector, const Vector& s_vector) {
-	return(Vector(f_vector.getX() - s_vector.getX(), f_vector.getY() - s_vector.getY(), f_vector.getZ() - s_vector.getZ()));
+	return(Vector(
+			f_vector.getX() - s_vector.getX(), 
+			f_vector.getY() - s_vector.getY(), 
+			f_vector.getZ() - s_vector.getZ()
+		)
+	);
 }
 
 /* Векторное произведение */
 Vector multiply(const Vector& f_vector, const Vector& s_vector) {
 	return(Vector(
-		f_vector.getY() * s_vector.getZ() - f_vector.getZ() * s_vector.getY(), 
-		f_vector.getZ() * s_vector.getX() - f_vector.getX() * s_vector.getZ(), 
-		f_vector.getX() * s_vector.getY() - f_vector.getY() * s_vector.getX()
+			f_vector.getY() * s_vector.getZ() - f_vector.getZ() * s_vector.getY(), 
+			f_vector.getZ() * s_vector.getX() - f_vector.getX() * s_vector.getZ(), 
+			f_vector.getX() * s_vector.getY() - f_vector.getY() * s_vector.getX()
 		)
 	);
 }

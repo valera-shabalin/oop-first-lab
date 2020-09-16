@@ -21,7 +21,7 @@ public:
 	~Vector();
 
 	/* Умножение вектора на скаляр */
-	void multiplyScalar(const double n);
+	Vector& multiplyScalar(const double n);
 
 	/* Подсчёт модуля вектора */
 	double calcAbs() const;
@@ -39,9 +39,13 @@ public:
 	int getID() const { return this->id; }
 
 	/* Сеттеры */
-	void setX(double x) { this->x = x; }
-	void setY(double y) { this->y = y; }
-	void setZ(double z) { this->z = z; }
+	Vector& set(double x, double y, double z) {
+		this->x = x; this->y = y; this->z = z;
+		return *this;
+	}
+	Vector& setX(double x) { this->x = x; return *this; }
+	Vector& setY(double y) { this->y = y; return *this; }
+	Vector& setZ(double z) { this->z = z; return *this; }
 };
 
 /* Сумма векторов */
