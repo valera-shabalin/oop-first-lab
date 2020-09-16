@@ -50,8 +50,7 @@ double Vector::calcAbs() const {
 
 /* Подсчёт единичного вектора */
 Vector Vector::calcOrt() const {
-	double abs = this->calcAbs();
-	return(Vector(this->x / abs, this->y / abs, this->z / abs));
+	return(Vector(*this).toOrt());
 }
 
 /* Создание единичного вектора */
@@ -68,6 +67,21 @@ void Vector::print(const bool linebreak) const {
 	cout << "[" << x << "," << y << "," << z << "]";
 	if (linebreak) cout << endl;
 }
+
+/* Геттеры */
+double Vector::getX() const { return this->x; }
+double Vector::getY() const { return this->y; }
+double Vector::getZ() const { return this->z; }
+int Vector::getID() const { return this->id; }
+
+/* Сеттеры */
+Vector& Vector::set(double x, double y, double z) {
+	this->x = x; this->y = y; this->z = z;
+	return *this;
+}
+Vector& Vector::setX(double x) { this->x = x; return *this; }
+Vector& Vector::setY(double y) { this->y = y; return *this; }
+Vector& Vector::setZ(double z) { this->z = z; return *this; }
 
 /* Сумма векторов */
 Vector summ(const Vector& f_vector, const Vector& s_vector) {

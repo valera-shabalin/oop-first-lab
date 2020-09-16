@@ -36,19 +36,16 @@ public:
 	void print(const bool linebreak = true) const;
 
 	/* Геттеры */
-	double getX() const { return this->x; }
-	double getY() const { return this->y; }
-	double getZ() const { return this->z; }
-	int getID() const { return this->id; }
+	double getX() const;
+	double getY() const;
+	double getZ() const;
+	int getID() const;
 
 	/* Сеттеры */
-	Vector& set(double x, double y, double z) {
-		this->x = x; this->y = y; this->z = z;
-		return *this;
-	}
-	Vector& setX(double x) { this->x = x; return *this; }
-	Vector& setY(double y) { this->y = y; return *this; }
-	Vector& setZ(double z) { this->z = z; return *this; }
+	Vector& set(double x, double y, double z);
+	Vector& setX(double x);
+	Vector& setY(double y);
+	Vector& setZ(double z);
 };
 
 /* Сумма векторов */
