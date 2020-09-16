@@ -1,10 +1,9 @@
+#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <cmath>
 
 #include "Vector.h"
-
-#define _USE_MATH_DEFINES
-#define M_PI 3.14159265358979323846
 
 using namespace std;
 
@@ -25,10 +24,11 @@ Vector::Vector(const Vector &other) {
 }
 
 /* Перегрузка оператора присваивания */
-void Vector::operator = (const Vector& other) {
+Vector Vector::operator = (const Vector& other) {
 	this->x = other.x;
 	this->y = other.y;
 	this->z = other.z;
+	return other;
 }
 
 /* Деструктор */

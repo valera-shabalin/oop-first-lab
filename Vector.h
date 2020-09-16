@@ -13,13 +13,13 @@ public:
 	Vector(const Vector& other);
 
 	/* Перегрузка оператора присваивания */
-	void operator = (const Vector& other);
+	Vector operator = (const Vector& other);
 
 	/* Деструктор */
 	~Vector();
 
 	/* Умножение вектора на скаляр */
-	void multiplyScalar(double n = 1);
+	void multiplyScalar(double n);
 
 	/* Подсчёт модуля вектора */
 	double calcAbs() const;
