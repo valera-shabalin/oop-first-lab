@@ -3,6 +3,8 @@
 
 class Vector {
 private:
+	static int static_id;
+	int id;
 	double x, y, z;
 
 public:
@@ -13,13 +15,13 @@ public:
 	Vector(const Vector& other);
 
 	/* Перегрузка оператора присваивания */
-	Vector operator = (const Vector& other);
+	const Vector& operator = (const Vector& other);
 
 	/* Деструктор */
 	~Vector();
 
 	/* Умножение вектора на скаляр */
-	void multiplyScalar(double n);
+	void multiplyScalar(const double n);
 
 	/* Подсчёт модуля вектора */
 	double calcAbs() const;
@@ -28,12 +30,13 @@ public:
 	Vector calcOrt() const;
 
 	/* Вывод вектора в консоль */
-	void print(bool linebreak = true) const;
+	void print(const bool linebreak = true) const;
 
 	/* Геттеры */
 	double getX() const { return this->x; }
 	double getY() const { return this->y; }
 	double getZ() const { return this->z; }
+	int getID() const { return this->id; }
 
 	/* Сеттеры */
 	void setX(double x) { this->x = x; }
@@ -42,25 +45,25 @@ public:
 };
 
 /* Сумма векторов */
-Vector summ(Vector const& f_vector, Vector const& s_vector);
+Vector summ(const Vector& f_vector, const Vector& s_vector);
 
 /* Разница векторов */
-Vector diff(Vector const& f_vector, Vector const& s_vector);
+Vector diff(const Vector& f_vector, const Vector& s_vector);
 
 /* Векторное произведение */
-Vector multiply(Vector const& f_vector, Vector const& s_vector);
+Vector multiply(const Vector& f_vector, const Vector& s_vector);
 
 /* Скарярное двух произведение */
-double s_multiply(Vector const& f_vector, Vector const& s_vector);
+double s_multiply(const Vector& f_vector, const Vector& s_vector);
 
 /* Получение косинуса между векторами */
-double calcCos(Vector const& f_vector, Vector const& s_vector);
+double calcCos(const Vector& f_vector, const Vector& s_vector);
 
 /* Получение синуса между векторами */
-double calcSin(Vector const& f_vector, Vector const& s_vector);
+double calcSin(const Vector& f_vector, const Vector& s_vector);
 
 /* Получение угла между векторами */
-double calcAngle(Vector const& f_vector, Vector const& s_vector);
+double calcAngle(const Vector& f_vector, const Vector& s_vector);
 
 #endif
 

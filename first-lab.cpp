@@ -4,6 +4,8 @@
 
 using namespace std;
 
+int Vector::static_id = 1;
+
 int main() {
 	setlocale(LC_ALL, "Russian");
 
@@ -20,33 +22,33 @@ int main() {
 
 	/* Сумма векторов */
 	Vector summ_vector = summ(s_vector, t_vector);
-	cout << "Сумма 2 и 3 векторов = ";
+	cout << "Сумма " << s_vector.getID() << " и " << t_vector.getID() << " векторов = ";
 	summ_vector.print();
 
 	/* Разница векторов */
 	Vector diff_vector = diff(s_vector, t_vector);
-	cout << "Разница 2 и 3 векторов = ";
+	cout << "Разница " << s_vector.getID() << " и " << t_vector.getID() << " векторов = ";
 	diff_vector.print();
 
 	/* Произведение векторов */
 	Vector mul_vector = multiply(s_vector, t_vector);
-	cout << "Произведение 2 и 3 векторов = ";
+	cout << "Произведение " << s_vector.getID() << " и " << t_vector.getID() << " векторов = ";
 	mul_vector.print();
 
 	/* Скалярное произведение векторов */
 	double s_mul = s_multiply(s_vector, t_vector);
-	cout << "Скалярное произведение 2 и 3 векторов = " << s_mul << endl;
+	cout << "Скалярное произведение " << s_vector.getID() << " и " << t_vector.getID() << " векторов = " << s_mul << endl;
 
 	/* Косинус между векторами */
 	double cos = calcCos(s_vector, t_vector);
-	cout << "Косинус между 2 и 3 векторами = " << cos << endl;
+	cout << "Косинус между " << s_vector.getID() << " и " << t_vector.getID() << " векторами = " << cos << endl;
 
 	/* Косинус между векторами */
 	double sin = calcSin(s_vector, t_vector);
-	cout << "Синус между 2 и 3 векторами = " << sin << endl;
+	cout << "Синус между " << s_vector.getID() << " и " << t_vector.getID() << " векторами = " << sin << endl;
 
 	/* Угол между векторами */
 	double angle = calcAngle(s_vector, t_vector);
-	cout << "Угол между 2 и 3 векторами = " << angle << endl;
+	cout << "Угол между " << s_vector.getID() << " и " << t_vector.getID() << " векторами = " << angle << endl;
 }
 

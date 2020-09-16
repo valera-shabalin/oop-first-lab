@@ -12,7 +12,8 @@ Vector::Vector(double x, double y, double z) {
 	this->x = x;
 	this->y = y;
 	this->z = z;
-	cout << "Вызвался конструктор - " << this << endl;
+	this->id = static_id++;
+	cout << "Вызвался конструктор, id - " << this->id << endl;
 }
 
 /* Конструктор копирования */
@@ -20,25 +21,27 @@ Vector::Vector(const Vector &other) {
 	this->x = other.x;
 	this->y = other.y;
 	this->z = other.z;
-	cout << "Вызвался конструктор копирования - " << this << endl;
+	this->id = static_id++;
+	cout << "Вызвался конструктор копирования, id - " << this->id << endl;
 }
 
 /* Перегрузка оператора присваивания */
-Vector Vector::operator = (const Vector& other) {
+const Vector& Vector::operator = (const Vector& other) {
 	if (this == &other) return *this;
 	this->x = other.x;
 	this->y = other.y;
 	this->z = other.z;
+	this->id = static_id++;
 	return other;
 }
 
 /* Деструктор */
 Vector::~Vector() {
-	cout << "Вызвался деструктор - " << this << endl;
+	cout << "Вызвался деструктор, id - " << this->id << endl;
 }
 
 /* Умножение вектора на скаляр */
-void Vector::multiplyScalar(double n) {
+void Vector::multiplyScalar(const double n) {
 	this->x *= n;
 	this->y *= n;
 	this->z *= n;
@@ -56,23 +59,23 @@ Vector Vector::calcOrt() const {
 }
 
 /* Вывод вектора в консоль */
-void Vector::print(bool linebreak) const {
+void Vector::print(const bool linebreak) const {
 	cout << "[" << x << "," << y << "," << z << "]";
 	if (linebreak) cout << endl;
 }
 
 /* Сумма векторов */
-Vector summ(Vector const& f_vector, Vector const& s_vector) {
+Vector summ(const Vector& f_vector, const Vector& s_vector) {
 	return(Vector(f_vector.getX() + s_vector.getX(), f_vector.getY() + s_vector.getY(), f_vector.getZ() + s_vector.getZ()));
 }
 
 /* Разница векторов */
-Vector diff(Vector const& f_vector, Vector const& s_vector) {
+Vector diff(const Vector& f_vector, const Vector& s_vector) {
 	return(Vector(f_vector.getX() - s_vector.getX(), f_vector.getY() - s_vector.getY(), f_vector.getZ() - s_vector.getZ()));
 }
 
 /* Векторное произведение */
-Vector multiply(Vector const& f_vector, Vector const& s_vector) {
+Vector multiply(const Vector& f_vector, const Vector& s_vector) {
 	return(Vector(
 		f_vector.getY() * s_vector.getZ() - f_vector.getZ() * s_vector.getY(), 
 		f_vector.getZ() * s_vector.getX() - f_vector.getX() * s_vector.getZ(), 
@@ -82,21 +85,21 @@ Vector multiply(Vector const& f_vector, Vector const& s_vector) {
 }
 
 /* Скарярное двух произведение */
-double s_multiply(Vector const& f_vector, Vector const& s_vector) {
+double s_multiply(const Vector& f_vector, const Vector& s_vector) {
 	return(f_vector.getX() * s_vector.getX() + f_vector.getY() * s_vector.getY() + f_vector.getZ() * s_vector.getZ());
 }
 
 /* Получение косинуса между векторами */
-double calcCos(Vector const& f_vector, Vector const& s_vector) {
+double calcCos(const Vector& f_vector, const Vector& s_vector) {
 	return(s_multiply(f_vector, s_vector) / (f_vector.calcAbs() * s_vector.calcAbs()));
 }
 
 /* Получение синуса между векторами */
-double calcSin(Vector const& f_vector, Vector const& s_vector) {
+double calcSin(const Vector& f_vector, const Vector& s_vector) {
 	return(multiply(f_vector, s_vector).calcAbs() / s_vector.calcAbs() / f_vector.calcAbs());
 }
 
 /* Получение угла между векторами */
-double calcAngle(Vector const& f_vector, Vector const& s_vector) {
+double calcAngle(const Vector& f_vector, const Vector& s_vector) {
 	return(atan2(multiply(f_vector, s_vector).calcAbs(), s_multiply(f_vector, s_vector)) * 180 / M_PI);
 }
