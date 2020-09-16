@@ -1,7 +1,6 @@
 ﻿#include <iostream>
 
 #include "Vector.h"
-#include "Functions.h"
 
 using namespace std;
 
