@@ -54,6 +54,15 @@ Vector Vector::calcOrt() const {
 	return(Vector(this->x / abs, this->y / abs, this->z / abs));
 }
 
+/* Создание единичного вектора */
+Vector& Vector::toOrt() {
+	double abs = this->calcAbs();
+	this->x / abs; 
+	this->y / abs; 
+	this->z / abs;
+	return *this;
+}
+
 /* Вывод вектора в консоль */
 void Vector::print(const bool linebreak) const {
 	cout << "[" << x << "," << y << "," << z << "]";

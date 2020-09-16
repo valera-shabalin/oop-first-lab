@@ -29,6 +29,9 @@ public:
 	/* Подсчёт единичного вектора */
 	Vector calcOrt() const;
 
+	/* Создание единичного вектора */
+	Vector& toOrt();
+
 	/* Вывод вектора в консоль */
 	void print(const bool linebreak = true) const;
 
