@@ -25,6 +25,7 @@ Vector::Vector(const Vector &other) {
 
 /* Перегрузка оператора присваивания */
 Vector Vector::operator = (const Vector& other) {
+	if (this == &other) return *this;
 	this->x = other.x;
 	this->y = other.y;
 	this->z = other.z;
