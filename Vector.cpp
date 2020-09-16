@@ -11,16 +11,14 @@ int Vector::static_id = 1;
 
 /* Конструктор */
 Vector::Vector(double x, double y, double z) {
-	this->x = x; this->y = y; this->z = z;
+	this->set(x, y, z);
 	this->id = static_id++;
 	cout << "Вызвался конструктор, id - " << this->id << endl;
 }
 
 /* Конструктор копирования */
 Vector::Vector(const Vector &other) {
-	this->x = other.x; 
-	this->y = other.y; 
-	this->z = other.z;
+	this->set(other.x, other.y, other.z);
 	this->id = static_id++;
 	cout << "Вызвался конструктор копирования, id - " << this->id << endl;
 }
@@ -28,9 +26,7 @@ Vector::Vector(const Vector &other) {
 /* Перегрузка оператора присваивания */
 const Vector& Vector::operator = (const Vector& other) {
 	if (this == &other) return *this;
-	this->x = other.x; 
-	this->y = other.y; 
-	this->z = other.z;
+	this->set(other.x, other.y, other.z);
 	return *this;
 }
 
